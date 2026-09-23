@@ -12,6 +12,8 @@ const STORAGE_KEY = 'TRACKER_IO';
 const STORAGE_BALANCE_KEY = 'BALANCE_TRACKER_IO';
 const RENDER_EVENT = 'render-trx';
 
+const nameUsername = "Amril Rismanto I (amrilrisman)";
+
 
 let transactions = [];
 let dataBalance = {};
@@ -345,6 +347,11 @@ function saveDataTrx() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const username = document.querySelector(
+        '.tracker-header__greeting strong'
+    );
+
+    username.textContent = nameUsername;
     btnCreateTransaction.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -481,10 +488,10 @@ function switchExpensesTrx(item) {
 
     switchBalanceSummary(data);
     data.type = enumTypeTrx.EXPENSE;
-    
+
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveDataTrx();
-    
+
 }
 function switchIncomeTrx(item) {
     const data = queryTrx(item.id);
