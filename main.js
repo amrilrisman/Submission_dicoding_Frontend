@@ -147,7 +147,15 @@ function renderWidgetTransaction(data = transactions) {
         switchIncome.innerText = 'Switch Income';
 
 
-        itemCard.setAttribute('data-testid', `${item.type}-${item.id}`);
+        itemCard.setAttribute('data-testid', 'transactionItem');
+        purpose.setAttribute('data-testid', 'transactionItemTitle');
+        date.setAttribute('data-testid', 'transactionItemDate');
+        type.setAttribute('data-testid', 'transactionItemType');
+        amount.setAttribute('data-testid', 'transactionItemAmount');
+        editButton.setAttribute('data-testid', 'transactionItemEditTypeButton');
+        deleteButton.setAttribute('data-testid', 'transactionItemDeleteButton');
+
+
         containerAction.append(switchExpenses, switchIncome, editButton, deleteButton);
         itemCardRight.append(type, containerAction);
         itemCardLeft.append(amount, purpose, date);
